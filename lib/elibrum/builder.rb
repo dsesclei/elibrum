@@ -19,7 +19,7 @@ module Elibrum
 			File.open(".#{filename}-temp.html", "w+") {|f| f.write(html)}
 			# Documentation for ebook-convert can be found here: http://manual.calibre-ebook.com/cli/ebook-convert.html
 			`#{EBOOK_CONVERT_PATH} .#{filename}-temp.html #{filename}.#{format} --title "#{@book.title}" --authors "#{@book.author}" --chapter "//h:pagebreak"`
-			#FileUtils.rm(filename + "-temp.html")
+			FileUtils.rm(filename + "-temp.html")
 		end
 
 		private
